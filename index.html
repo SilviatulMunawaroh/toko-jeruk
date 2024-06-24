@@ -3,29 +3,1038 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kopi Kenangan Senja</title>
+    <title>Toko Buah Jeruk</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
     <script src="https://unpkg.com/feather-icons"></script>
+    <script>
+        function checkForm() {
+            window.location.href = "tampil.php";
+        }
+    </script>
 
-    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        :root {
+    --primary: #fe8411;
+    --bg: #fff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg);
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.4rem 7%;
+    background-color: rgb(118, 189, 237);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+}
+
+
+
+.navbar .navbar-logo {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+    font-style: italic;
+}
+
+.navbar .navbar-logo span {
+    color: var(--primary);
+}
+
+.navbar .navbar-nav a {
+    color: #fff;
+    display: inline-block;
+    font-size: 1.3rem;
+    margin: 0 1rem;
+}
+
+.navbar .navbar-nav a:hover {
+    color: var(--primary);
+}
+
+.navbar .navbar-nav a::after {
+    content: '';
+    display: block;
+    padding-bottom: 0.5rem;
+    border-bottom: 0.1rem solid var(--primary);
+    transform: scaleX(0);
+    transition: 0.2s linear;
+}
+
+.navbar .navbar-nav a:hover::after {
+    transform: scaleX(0.5);
+}
+
+.navbar .navbar-extra a {
+    color: #fff; 
+    margin: 0 0.5rem;
+}
+
+.navbar .navbar-extra a:hover {
+    color: var(--primary);
+}
+
+#hamburger-menu {
+    display: none;
+}
+
+
+/* Navbar search form */
+.navbar .search-form {
+    position: absolute;
+    top: 100%;
+    right: 7%;
+    background-color: #fff;
+    width: 40rem;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: 0.3s;
+}
+
+
+.navbar .search-form.active {
+    transform: scaleY(1);
+}
+
+
+.navbar .search-form input {
+    height: 100%;
+    width: 100%;
+    font-size: 1.6rem;
+    color: var(--bg);
+    padding: 1rem;
+}
+
+
+.navbar .search-form label {
+    cursor: pointer;
+    font-size: 2rem;
+    margin-right: 1.5rem;
+    color: var(--bg);
+}
+
+
+/* Shopping Cart */
+.shopping-cart {
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    height: 100vh;
+    width: 35rem;
+    padding: 0 1.5rem;
+    background-color: #fff;
+    color: var(--bg);
+    transition: 0.3s;
+    color: #fe8411;
+}
+
+
+.shopping-cart.active {
+    right: 0;
+}
+
+
+.shopping-cart .cart-item {
+    margin: 2rem 0;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px dashed #666;
+    position: relative;
+}
+
+.shopping-cart img {
+    height: 6rem;
+    border-radius: 50%;
+}
+
+
+.shopping-cart h3 {
+    font-size: 1.6rem;
+    padding-bottom: 0.5rem;
+}
+
+
+.shopping-cart .item-price {
+    font-size: 1.2rem;
+}
+
+
+.shopping-cart .remove-item {
+    position: absolute;
+    right: 1rem;
+    cursor: pointer;
+}
+
+
+.shopping-cart .remove-item:hover {
+    color:#c0392b;
+}
+
+
+/* Hero Section */
+.hero {
+        min-height: 100vh;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-gap: 20px;
+        background-color: rgb(118, 189, 237);
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        padding: 1.4rem 7%;
+}
+
+
+.hero::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 40%;
+    bottom: 0;
+    background: linear-gradient(0deg, rgb(255, 255, 255) 0.5%, rgba(255, 255, 255, 0) 50%);
+}
+
+.hero .content {
+        max-width: 60rem;
+        z-index: 1; 
+}
+
+
+
+.hero .content h1 {
+        font-size: 2.5rem;
+        color: #fff;
+        text-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
+        line-height: 1.2;
+        margin: 0;
+        margin-top: 150px;
+}
+
+.hero .content h1 span {
+    color: var(--primary);
+}
+
+
+.hero .content p {
+        font-size: 1.6rem;
+        margin-top: 1rem;
+        line-height: 1.4;
+        font-weight: 350;
+        text-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
+        color: #fff;
+        margin-right: 50px;
+}
+
+
+.hero .image-container {
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        margin-left: 50px; 
+}
+
+.hero .image-container img {
+        width: 100%;
+        max-width: 900px;
+        height: auto;
+        border-radius: 0.5rem;
+        width: 120%;
+}
+
+@media screen and (max-width: 768px) {
+    .hero {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* About section */
+.about, 
+.menu,
+.products,
+.contact {
+    width: 80%;
+    max-width: 1200px;
+    min-width: 600px;
+    margin: 0 auto;
+}
+
+
+.about h2, 
+.menu h2,
+.products h2,
+.contact h2 {
+    text-align: center;
+    font-size: 2.6rem;
+    margin-bottom: 3rem;
+}
+
+
+
+.about h2 span, 
+.menu h2 span,
+.products h2 span,
+.contact h2 span {
+    color: var(--primary);
+}
+
+
+.about .row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.about .row .about-img {
+    flex: 1 1 40%;
+    max-width: 45rem;
+}
+
+.about .row .about-img img {
+    width: 100%;
+    height: 50%;
+    margin-bottom: 2rem;
+}
+
+
+.about .row .content {
+    flex: 1 1 35rem;
+    padding: 0 1rem;
+}
+
+
+.about .row .content h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #fe8411;
+}
+
+
+.about .row .content p {
+    margin-bottom: 0.8rem;
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #fe8411;
+}
+
+
+/* Menu section */
+.menu h2,
+.products h2,
+.contact h2 {
+    margin-bottom: 1rem;
+}
+
+
+.menu p,
+.products p,
+.contact p {
+    text-align: center;
+    max-width: 30rem;
+    margin: auto;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.6;
+    color: #fe8411;
+}
+
+
+.menu .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 5rem;
+    justify-content: center;
+}
+
+
+.menu .row .menu-card {
+    text-align: center;
+    padding-bottom: 4rem;
+}
+
+.menu .row .menu-card h3 {
+    color: #fe8411;
+}
+
+
+.menu .row .menu-card img {
+    border-radius: 50%;
+    width: 80%;
+}
+
+
+.menu .row .menu-card .menu-card-title {
+    margin: 1rem auto 0.5rem;
+}
+
+
+/* Products Section */
+.products .row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 1.5rem;
+    margin-top: 4rem;
+}
+
+
+.products .product-card {
+    text-align: center;
+    border: 1px solid #666;
+    padding: 2rem;
+}
+
+.products .product-icons {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.products .product-icons a {
+width: 4rem;
+height: 4rem;
+color: #fe8411;
+margin: 0.3rem;
+border: 1px solid #666;
+border-radius: 50%;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+
+.products .product-icons a:hover {
+    background-color: #fe8411;
+    color: #fff;
+    border: 1px solid var(--primary);
+}
+
+
+.products .product-image {
+    padding: 1rem 0;
+}
+
+.products .product-image img {
+    height: 25rem;
+}
+
+
+.products .product-content h3 {
+    font-size: 2rem;
+}
+
+
+.products .product-stars {
+    font-size: 1.7rem;
+    padding: 0.8rem;
+    color: var(--primary);
+}
+
+.products .product-stars .star-full {
+    fill: var(--primary);
+}
+
+
+.products .product-price {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.products .product-price span {
+    text-decoration: line-through;
+    font-weight: lighter;
+    font-size: 1rem;
+
+}
+
+/* Contact Section */
+.contact_section {
+    padding: 60px 0;
+    background-color: #fff5f5;
+}
+
+.contact_taital {
+    font-size: 36px;
+    color: #fe8411;
+    margin-bottom: 20px;
+}
+
+.mail_text, .massage-bt {
+    width: 100%;
+    padding: 10px 10px 10px 40px; 
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #ffe6e6;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-group i {
+    position: absolute;
+    top: 47%;
+    left: 13px;
+    bottom: 0px;
+    transform: translateY(-50%);
+    color: #fe8411;
+    font-size: 1.2em;
+}
+
+.input-group input {
+    padding-left: 35px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+button {
+    padding: 10px 20px;
+    background-color: #fe8411;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #c0392b;
+}
+
+.contact_section .row {
+    display: flex;
+    align-items: stretch; 
+    gap: 20px; 
+}
+
+.contact_section .map-container, .contact_section .col-md-6 {
+    flex: 1 1 50%;
+}
+
+/* Tablet */
+@media (max-width: 758px) {
+    html {
+        font-size: 62.5%;
+    }
+
+    #hamburger-menu {
+        display: inline-block;
+    }
+
+    .navbar .navbar-nav {
+        position: absolute;
+        top: 100%;
+        right: -100%;
+        background-color: #fff;
+        width: 30rem;
+        height: 100vh;
+        transition: 0.3s;
+    }
+
+    .navbar .navbar-nav.active {
+        right: 0;
+    }
+
+    .navbar .navbar-nav a {
+        color: var(--bg);
+        display: block;
+        margin: 1.5rem;
+        padding: 0.5rem;
+        font-size: 2rem;
+    }
+
+    .navbar .navbar-nav a::after {
+        transform-origin: 0 0;
+    }
+
+    .navbar .navbar-nav a:hover::after {
+        transform: scaleX(0.2);
+    }
+
+    .navbar .search-form {
+        width: 90%;
+        right: 100%;
+    }
+
+    .about .row {
+        flex-wrap: wrap;
+    }
+
+    .about .row .about-img img {
+        height: 24rem;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .about .row .content {
+        padding: 0;
+    }
+
+    .about .row .content h3 {
+        margin-top: 1rem;
+        font-size: 2rem;
+    }
+
+    .about .content p {
+        font-size: 1.6rem;
+    }
+
+    .menu p {
+        font-size: 1.2rem;
+    }
+
+    .contact_section .row {
+        flex-wrap: wrap;
+    }
+
+    .contact_section .map {
+        height: 30rem;
+    }
+
+    .contact_section .col-md-6 {
+        padding-top: 0;
+    }
+
+    .contact_section .mail_section_1 .mail_text,
+    .contact_section .mail_section_1 .massage-bt {
+        padding: 1rem 1rem 1rem 70px; 
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
+    }
+
+    .contact_section .mail_section_1 button[type="submit"],
+    .contact_section .mail_section_1 button[type="button"] {
+        padding: 0.5rem 1rem;
+        font-size: 1.6rem;
+    }
+
+    .input-group {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+        position: relative;
+    }
+
+    .input-group i {
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #fe8411;
+        font-size: 1.2em;
+    }
+
+    .input-group input,
+    .input-group textarea {
+        width: 100%;
+        padding: 0.5rem 0.5rem 0.5rem 40px; 
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    .btn {
+        padding: 0.5rem 1rem;
+        background-color: #fe8411;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .btn:hover {
+        background-color: #c0392b;
+    }
+
+    .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+    }
+}
+
+
+
+/* Footer */
+footer {
+    background-color: var(--primary);
+    text-align: center;
+    padding: 1rem 0 3rem;
+    margin-top: 3rem;
+    width: 100%;
+}
+
+footer .links a:hover {
+    color: #000000;
+}
+
+
+footer .links {
+    margin-bottom: 1.4rem;
+}
+
+
+footer .links a {
+    color: #fff;
+    padding: 0.7rem 1rem;
+}
+
+
+footer .credit {
+    font-size: 0.8rem;
+}
+
+
+footer .credit a {
+    color: var(--bg);
+    font-weight: 700;
+}
+
+
+/* Modal Box */
+/* Item Detail */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+
+.modal-container {
+    position: relative;
+    background-color: #fefefe;
+    color: var(--bg);
+    margin: 15% auto;
+    padding: 1.2rem;
+    border: 1px solid #666;
+    width: 80%;
+    animation: animateModal 0.5s;
+}
+
+
+/* Modal Animation */
+@keyframes animateModal{
+    form {
+        top: -300px;
+        opacity: 0;
+    }
+    to {
+        top: 0;
+        opacity: 1;
+    }
+}
+
+
+.modal-container .close-icon {
+    position: absolute;
+    right: 1rem;
+}
+
+
+.modal-content {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+
+
+.modal-content img {
+    height: 15.5rem;
+    margin-right: 2rem;
+    margin-bottom: 2rem;
+}
+
+
+.modal-content p {
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+    margin-top: 1.2rem;
+}
+
+
+.modal-content a {
+    display: flex;
+    gap: 1rem;
+    width: 12rem;
+    background-color: var(--primary);
+    color: #fff;
+    margin-top: 1rem;
+    padding: 1rem 1.6rem;
+}
+
+
+/* Media Queries */
+/* Laptop */
+@media (max-width: 1366px) {
+    html {
+        font-size: 75%;
+    }
+}
+
+
+/* Tablet and Mobile */
+@media (max-width: 758px) {
+    html {
+        font-size: 62.5%;
+    }
+
+    #hamburger-menu {
+        display: inline-block;
+    }
+
+    .navbar .navbar-nav {
+        position: absolute;
+        top: 100%;
+        right: -100%;
+        background-color: #fff;
+        width: 30rem;
+        height: 100vh;
+        transition: 0.3s;
+    }
+
+    .navbar .navbar-nav.active {
+        right: 0;
+    }
+
+    .navbar .navbar-nav a {
+        color: var(--bg);
+        display: block;
+        margin: 1.5rem;
+        padding: 0.5rem;
+        font-size: 2rem;
+    }
+
+    .navbar .navbar-nav a::after {
+        transform-origin: 0 0;
+    }
+
+    .navbar .navbar-nav a:hover::after {
+        transform: scaleX(0.2);
+    }
+
+    .navbar .search-form {
+        width: 90%;
+        right: 100%;
+    }
+
+    .about .row {
+        flex-wrap: wrap;
+    }
+
+    .about .row .about-img img {
+        height: 24rem;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .about .row .content {
+        padding: 0;
+    }
+
+    .about .row .content h3 {
+        margin-top: 1rem;
+        font-size: 2rem;
+    }
+
+    .about .content p {
+        font-size: 1.6rem;
+    }
+
+    .menu p {
+        font-size: 1.2rem;
+    }
+
+    .contact_section .row {
+        flex-wrap: wrap;
+    }
+
+    .contact_section .map {
+        height: 30rem;
+    }
+
+    .contact_section .col-md-6 {
+        padding-top: 0;
+    }
+
+    .contact_section .mail_section_1 .mail_text,
+    .contact_section .mail_section_1 .massage-bt {
+        padding: 1rem;
+        font-size: 1.6rem;
+    }
+
+    .contact_section .mail_section_1 button[type="submit"],
+    .contact_section .mail_section_1 button[type="button"] {
+        padding: 0.5rem 1rem;
+        font-size: 1.6rem;
+    }
+
+    .input-group {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+
+    .input-group i {
+        margin-right: 0.5rem;
+    }
+
+    .input-group input {
+        width: 100%;
+        padding: 0.5rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    .btn {
+        padding: 0.5rem 1rem;
+        background-color: #007BFF;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .btn:hover {
+        background-color: #0056b3;
+    }
+
+    .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+    }
+}
+
+/* Mobile */
+@media (max-width: 450px) {
+    html {
+        font-size: 55%;
+    }
+}
+
+    /* Navbar */
+    .navbar .navbar-nav a {
+        font-size: 1.8rem;
+    }
+
+    /* Hero Section */
+    .hero .content h1 {
+        font-size: 5.5rem;
+    }
+
+    .hero .content p {
+        font-size: 1.2rem;
+    }
+
+    /* About Section */
+    .about .row .content h3 {
+        font-size: 1.5rem;
+    }
+
+    .about .row .content p {
+        font-size: 1rem;
+    }
+
+    /* Menu Section */
+    .menu .row .menu-card h3 {
+        font-size: 1.2rem;
+    }
+
+    /* Products Section */
+    .products .product-content h3 {
+        font-size: 1.4rem;
+    }
+
+    .products .product-price {
+        font-size: 1rem;
+    }
+
+    /* Contact Section */
+    .contact_taital {
+        font-size: 2rem;
+    }
+
+    .contact_section .mail_text, 
+    .contact_section .massage-bt {
+        font-size: 1.2rem;
+    }
+
+    /* Footer */
+    footer .credit {
+        font-size: 0.6rem;
+    }
+
+    </style>
     
 </head>
 <body>
 
     <!-- Navbar start -->
     <nav class="navbar">
-        <a href="#" class="navbar-logo">kenangan<span>senja</span>.</a>
+        <a href="#" class="navbar-logo">Citrus<span>House</span>.</a>
         <div class="navbar-nav">
             <a href="#home">Home</a>
-            <a href="#about">Tentang Kami</a>
+            <a href="#about">About Our</a>
             <a href="#menu">Menu</a>
-            <a href="#products">Produk</a>
-            <a href="#contact">kontak</a>
+            <a href="#products">Product</a>
+            <a href="#contact">Contact</a>
         </div>
 
         <div class="navbar-extra">
@@ -45,7 +1054,7 @@
         <!-- Shopping Cart start -->
         <div class="shopping-cart">
             <div class="cart-item">
-                <img src="img/products/1.jfif" alt="Coffe Ca Phe Joi">
+                <img src="img/products/es krim jeruk.jpg" alt="Coffe Ca Phe Joi">
                 <div class="item-detail">
                     <h3>Coffe Ca Phe Joi</h3>
                     <div class="item-price">IDR 75K</div>
@@ -53,7 +1062,8 @@
                 <i data-feather="trash-2" class="remove-item"></i>
             </div>
             <div class="cart-item">
-                <img src="img/products/2.jfif" alt="Coffe Jamaica">
+                <img src="img/products/kemasan produk kue jeruk.jpg
+                " alt="Coffe Jamaica">
                 <div class="item-detail">
                     <h3>Coffe Jamaica</h3>
                     <div class="item-price">IDR 50K</div>
@@ -61,7 +1071,31 @@
                 <i data-feather="trash-2" class="remove-item"></i>
             </div>
             <div class="cart-item">
-                <img src="img/products/3.jfif" alt="Coffe Kona">
+                <img src="img/products/sari buah jeruk.jpg" alt="Coffe Jamaica">
+                <div class="item-detail">
+                    <h3>Coffe Jamaica</h3>
+                    <div class="item-price">IDR 50K</div>
+                </div>
+                <i data-feather="trash-2" class="remove-item"></i>
+            </div>
+            <div class="cart-item">
+                <img src="img/products/selai jeruk.jpg" alt="Coffe Jamaica">
+                <div class="item-detail">
+                    <h3>Coffe Jamaica</h3>
+                    <div class="item-price">IDR 50K</div>
+                </div>
+                <i data-feather="trash-2" class="remove-item"></i>
+            </div>
+            <div class="cart-item">
+                <img src="img/products/Sirup jeruk abc.jpg" alt="Coffe Jamaica">
+                <div class="item-detail">
+                    <h3>Coffe Jamaica</h3>
+                    <div class="item-price">IDR 50K</div>
+                </div>
+                <i data-feather="trash-2" class="remove-item"></i>
+            </div>
+            <div class="cart-item">
+                <img src="img/products/kripik jeruk.jpg" alt="Coffe Kona">
                 <div class="item-detail">
                     <h3>Coffe Kona</h3>
                     <div class="item-price">IDR 15K</div>
@@ -69,74 +1103,89 @@
                 <i data-feather="trash-2" class="remove-item"></i>
             </div>
         </div>
-        <!-- Shopping Cart end -->
 
     </nav>
-    <!-- Navbar end -->
-
-    <!-- Hero Section start -->
+    
     <section class="hero" id="home">
         <main class="content">
-            <h1>Mari Nikmati Secangkir <span>Kopi</span></h1>
-            <p>Temukan Keseimbangan Aroma, Rasa, dan Kekuatan dalam Setiap Cangkir</p>
-            <a href="#" class="cta">Beli Sekarang</a>
+            <h1>Nikmati Kesegaran Alami <span>Jeruk</span> Kami</h1>
+            <p>Dari Kebun ke Meja Anda, Kesegaran Jeruk Terjamin</p>
         </main>
+        <div class="image-container">
+            <img src="img/jeruk.png" alt="Jeruk Segar">
+        </div>
     </section>
-    <!-- Hero Section end -->
 
-
-    <!-- About Section start-->
     <section id="about" class="about">
-        <h2><span>Tentang</span>Kami</h2>
+        <h2><span>About Our Orange</span></h2>
         <div class="row">
             <div class="about-img">
-                <img src="img/tentang-kami.jpg" alt="Tentang Kami">
+                <img src="img/jeruk.png" alt="Tentang Kami">
             </div>
             <div class="content">
-                <h3>Kenapa memilih kopi kami?</h3>
-                <p>Selamat datang di Kedai Kopi! Kami bangga menyajikan kepada Anda kopi berkualitas terbaik yang tidak hanya memanjakan lidah, tetapi juga menghadirkan pengalaman kopi yang tak tertandingi. Ada beberapa alasan mengapa memilih kami sebagai sumber utama kopi Anda:</p>
-                <p> Kami berkomitmen untuk menyajikan kopi dengan kualitas terbaik. Setiap biji kopi dipilih secara hati-hati dari perkebunan terbaik di seluruh dunia untuk memastikan cita rasa yang konsisten dan memuaskan.
-                    Kopi kami memiliki karakteristik rasa yang unik dan beragam, memenuhi selera setiap pecinta kopi. Dari yang beraroma floral hingga yang lebih nutty, kami memiliki berbagai pilihan untuk memuaskan selera Anda.
-                    Dengan Kedai Kopi, Anda bukan hanya memilih kopi, tetapi juga memilih pengalaman yang memuaskan dan berkesan. Jadikan setiap cangkir kopi Anda sebagai perjalanan sensorik yang menghidupkan selera Anda. Terima kasih telah memilih kami sebagai mitra kopi Anda!
+                <h3>Kenapa memilih buah jeruk kami?</h3>
+                <p>
+                    Selamat datang di Citrus House! Kami bangga menyajikan kepada Anda menu olahan jeruk berkualitas terbaik jeruk bukan hanya sekadar buah, tapi juga pahlawan kesehatan yang menginspirasi! Dengan kandungan vitamin C yang meledak,
+                    serat yang membangun, dan rasa yang memikat, jeruk bukan hanya memenuhi selera, tapi juga memperkuat imunitas tubuhmu. Apalagi dalam bentuk segar, jus menyegarkan, atau aroma menyegarkan minyak esensialnya, jeruk tidak hanya
+                    membuat hidup lebih cerah, tapi juga lebih sehat. Jadi, jangan lewatkan sentuhan jeruk dalam hidupmu yang berwarna-warni! Ada beberapa alasan mengapa memilih kami sebagai sumber utama dari kedai Buah Jeruk untuk anda:
+                </p>
+                <p>
+                    Tentu! Memilih sumber utama untuk jeruk Anda adalah seperti menemukan tiket emas ke dunia rasa yang tak terlupakan. Di sini, bukan hanya tentang jeruk yang segar dan berkualitas, tapi juga tentang mendukung para petani pahlawan
+                    dan merayakan keanekaragaman rasa. Setiap gigitan adalah perjalanan baru dalam sensasi jeruk yang mengasyikkan, sementara Anda juga memiliki kepercayaan penuh akan keamanan dan kebersihan produk. Dengan memilih sumber utama,
+                    Anda tak hanya memilih jeruk, tapi juga menjadi bagian dari perjalanan dan komunitas yang luar biasa!
                 </p>
             </div>
         </div>
     </section>
-    <!-- About Section end-->
 
-    <!-- Menu Section start -->
+
     <section id="menu" class="menu">
-        <h2><span>Menu</span>Kami</h2>
+        <h2><span>Menu Kami</span></h2>
         <p>"Nikmati beragam pilihan kopi spesial kami yang disajikan dengan cita rasa yang khas. Dari kopi hitam yang kuat hingga kopi lembut dengan sentuhan vanilla, kami memiliki segala sesuatu untuk memuaskan selera Anda. Temukan pengalaman kopi yang tak terlupakan di tempat kami!"</p>
         <div class="div row">
             <div class="menu-card">
-                <img src="img/menu/kopi.jpg" alt="Espresso" class="menu-card-img">
-                <h3 class="menu-card-title">- Espresso</h3>
+                <img src="img/menu/dessert jeruk 2.jpg" alt="Espresso" class="menu-card-img">
+                <h3 class="menu-card-title">- Special Marmalade Bread</h3>
+                <p class="menu-card-price">IDR 20k</p>
+            </div>
+            <div class="menu-card">
+                <img src="img/menu/dessert jeruk.jpg" alt="Espresso" class="menu-card-img">
+                <h3 class="menu-card-title">- Candied Orange Dessert</h3>
+                <p class="menu-card-price">IDR 25k</p>
+            </div>
+            <div class="menu-card">
+                <img src="img/menu/es jeruk kelapa.jpg" alt="Espresso" class="menu-card-img">
+                <h3 class="menu-card-title">- Coconut Orange Ice</h3>
                 <p class="menu-card-price">IDR 15k</p>
             </div>
             <div class="menu-card">
-                <img src="img/menu/1.jfif" alt="Espresso" class="menu-card-img">
-                <h3 class="menu-card-title">- Dalgona</h3>
+                <img src="img/menu/jelly salad.jpg" alt="Espresso" class="menu-card-img">
+                <h3 class="menu-card-title">- Orange Salad Jelly</h3>
+                <p class="menu-card-price">IDR 20k</p>
+            </div>
+            <div class="menu-card">
+                <img src="img/menu/koktail jeruk.jpg" alt="Espresso" class="menu-card-img">
+                <h3 class="menu-card-title">- Orange Cocktail</h3>
+                <p class="menu-card-price">IDR 18k</p>
+            </div>
+            <div class="menu-card">
+                <img src="img/menu/kue jeruk.jpg" alt="Espresso" class="menu-card-img">
+                <h3 class="menu-card-title">- Orange Cake</h3>
+                <p class="menu-card-price">IDR 18k</p>
+            </div>
+            <div class="menu-card">
+                <img src="img/menu/manisan jeruk.jpg" alt="Espresso" class="menu-card-img">
+                <h3 class="menu-card-title">- Candied Orange Peel</h3>
                 <p class="menu-card-price">IDR 15k</p>
             </div>
             <div class="menu-card">
-                <img src="img/menu/2.jfif" alt="Espresso" class="menu-card-img">
-                <h3 class="menu-card-title">- Coffe Late</h3>
-                <p class="menu-card-price">IDR 15k</p>
+                <img src="img/menu/menu buah jeruk.jpg" alt="Espresso" class="menu-card-img">
+                <h3 class="menu-card-title">- Orange Fruit</h3>
+                <p class="menu-card-price">IDR 20k</p>
             </div>
             <div class="menu-card">
-                <img src="img/menu/3.jfif" alt="Espresso" class="menu-card-img">
-                <h3 class="menu-card-title">- Cappucino</h3>
-                <p class="menu-card-price">IDR 15k</p>
-            </div>
-            <div class="menu-card">
-                <img src="img/menu/4.jfif" alt="Espresso" class="menu-card-img">
-                <h3 class="menu-card-title">- Americano</h3>
-                <p class="menu-card-price">IDR 15k</p>
-            </div>
-            <div class="menu-card">
-                <img src="img/menu/5.jfif" alt="Espresso" class="menu-card-img">
-                <h3 class="menu-card-title">- Es Coffe</h3>
+                <img src="img/menu/jus jeruk.jpg" alt="Espresso" class="menu-card-img">
+                <h3 class="menu-card-title">- Orange Juice</h3>
                 <p class="menu-card-price">IDR 15k</p>
             </div>
         </div>
@@ -145,20 +1194,20 @@
 
     <!-- Products Section start -->
     <section class="products" id="products">
-        <h2><span>Produk Unggulan</span> Kami</h2>
+        <h2><span>Produk Unggulan Kami</span></h2>
         <p>Setiap produk kopi unggulan kami memiliki karakteristik dan keunikan masing-masing, menawarkan pengalaman kopi yang berbeda untuk dinikmati oleh para pencinta kopi di seluruh dunia.</p>
 
         <div class="row">
             <div class="product-card">
                 <div class="product-icons">
-                    <a href="#"><i data-feather="shopping-cart"></i></a>
+                    <a href="#shopping-cart"><i data-feather="shopping-cart"></i></a>
                     <a href="#" class="item-detail-button"><i data-feather="eye"></i></a>
                 </div>
                 <div class="product-image">
-                    <img src="img/products/1.jfif" alt="Coffe Ca Phe Joi">
+                    <img src="img/products/es krim jeruk.jpg" alt="Orange Ice Cream">
                 </div>
                 <div class="product-content">
-                    <h3>Coffe Ca Phe Joi</h3>
+                    <h3>Orange Ice Cream</h3>
                     <div class="product-stars">
                         <i data-feather="star" class="star-full"></i>
                         <i data-feather="star" class="star-full"></i>
@@ -166,7 +1215,7 @@
                         <i data-feather="star" class="star-full"></i>
                         <i data-feather="star"></i>
                     </div>
-                    <div class="product-price">IDR 75K <span>IDR 90k</span></div>
+                    <div class="product-price">IDR 6K <span>IDR 8k</span></div>
                 </div>
             </div>
             <div class="product-card">
@@ -175,7 +1224,7 @@
                     <a href="#" class="item-detail-button"><i data-feather="eye"></i></a>
                 </div>
                 <div class="product-image">
-                    <img src="img/products/2.jfif" alt="Coffe Jamaica">
+                    <img src="img/products/kemasan produk kue jeruk.jpg" alt="Orange Pie">
                 </div>
                 <div class="product-content">
                     <h3>Coffe Jamaica</h3>
@@ -186,7 +1235,7 @@
                         <i data-feather="star" class="star-full"></i>
                         <i data-feather="star" class="star-full"></i>
                     </div>
-                    <div class="product-price">IDR 50K <span>IDR 70k</span></div>
+                    <div class="product-price">IDR 45K <span>IDR 52k</span></div>
                 </div>
             </div>
             <div class="product-card">
@@ -195,10 +1244,70 @@
                     <a href="#" class="item-detail-button"><i data-feather="eye"></i></a>
                 </div>
                 <div class="product-image">
-                    <img src="img/products/3.jfif" alt="Coffe Kona">
+                    <img src="img/products/kripik jeruk.jpg" alt="Candied Orange chips">
                 </div>
                 <div class="product-content">
-                    <h3>Coffe Kona</h3>
+                    <h3>Candied Orange chips</h3>
+                    <div class="product-stars">
+                        <i data-feather="star" class="star-full"></i>
+                        <i data-feather="star" class="star-full"></i>
+                        <i data-feather="star" class="star-full"></i>
+                        <i data-feather="star" class="star-full"></i>
+                        <i data-feather="star" class="star-full"></i>
+                    </div>
+                    <div class="product-price">IDR 15K <span>IDR 18k</span></div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-icons">
+                    <a href="#"><i data-feather="shopping-cart"></i></a>
+                    <a href="#" class="item-detail-button"><i data-feather="eye"></i></a>
+                </div>
+                <div class="product-image">
+                    <img src="img/products/sari buah jeruk.jpg" alt="Orange Juice">
+                </div>
+                <div class="product-content">
+                    <h3>Orange Juice</h3>
+                    <div class="product-stars">
+                        <i data-feather="star" class="star-full"></i>
+                        <i data-feather="star" class="star-full"></i>
+                        <i data-feather="star" class="star-full"></i>
+                        <i data-feather="star" class="star-full"></i>
+                        <i data-feather="star" class="star-full"></i>
+                    </div>
+                    <div class="product-price">IDR 18K <span>IDR 20k</span></div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-icons">
+                    <a href="#"><i data-feather="shopping-cart"></i></a>
+                    <a href="#" class="item-detail-button"><i data-feather="eye"></i></a>
+                </div>
+                <div class="product-image">
+                    <img src="img/products/selai jeruk.jpg" alt="Marmalade">
+                </div>
+                <div class="product-content">
+                    <h3>Marmalade</h3>
+                    <div class="product-stars">
+                        <i data-feather="star" class="star-full"></i>
+                        <i data-feather="star" class="star-full"></i>
+                        <i data-feather="star" class="star-full"></i>
+                        <i data-feather="star" class="star-full"></i>
+                        <i data-feather="star" class="star-full"></i>
+                    </div>
+                    <div class="product-price">IDR 25K <span>IDR 28k</span></div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-icons">
+                    <a href="#"><i data-feather="shopping-cart"></i></a>
+                    <a href="#" class="item-detail-button"><i data-feather="eye"></i></a>
+                </div>
+                <div class="product-image">
+                    <img src="img/products/Sirup jeruk abc.jpg" alt="Orange Syrup">
+                </div>
+                <div class="product-content">
+                    <h3>Orange Syrup</h3>
                     <div class="product-stars">
                         <i data-feather="star" class="star-full"></i>
                         <i data-feather="star" class="star-full"></i>
@@ -206,49 +1315,59 @@
                         <i data-feather="star"></i>
                         <i data-feather="star"></i>
                     </div>
-                    <div class="product-price">IDR 15K <span>IDR 30k</span></div>
+                    <div class="product-price">IDR 20K <span>IDR 23k</span></div>
                 </div>
             </div>
         </div>
     </section>
     <!-- Products Section end -->
 
-    <!-- Kontak Section start -->
-    <section id="contact" class="contact">
-        <h2><span>Kontak</span>Kami</h2>
-        <p>Selamat datang di layanan pemesanan kopi kami! Kami sangat senang Anda tertarik untuk memesan kopi berkualitas dari kami. Untuk melakukan pemesanan atau mendapatkan informasi lebih lanjut, silakan hubungi kami melalui layanan yang telah tersedia di bawah ini:</p>
-
-        <div class="row">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15812.7776602533!2d113.4644297181899!3d-7.769197614589808!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7018ae2395161%3A0x3a778cf673933814!2sAlas%20Kandang%2C%20Kec.%20Besuk%2C%20Kabupaten%20Probolinggo%2C%20Jawa%20Timur!5e0!3m2!1sid!2sid!4v1711083563765!5m2!1sid!2sid" width="600" height="450" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="map"></iframe>
-            <form action="">
-                <div class="input-group">
-                    <i data-feather="user"></i>
-                    <input type="text" placeholder="nama">
+    <!-- contact section start -->
+<div id="contact" class="contact_section layout_padding">
+    <div class="container">
+        <div class="contact_section_2">
+            <div class="row">
+                <div class="col-md-6 map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15812.7776602533!2d113.4644297181899!3d-7.769197614589808!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7018ae2395161%3A0x3a778cf673933814!2sAlas%20Kandang%2C%20Kec.%20Besuk%2C%20Kabupaten%20Probolinggo%2C%20Jawa%20Timur!5e0!3m2!1sid!2sid!4v1711083563765!5m2!1sid!2sid" width="600" height="450" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="map"></iframe>
                 </div>
-                <div class="input-group">
-                    <i data-feather="mail"></i>
-                    <input type="text" placeholder="email">
+                <div class="col-md-6">
+                    <div class="mail_section_1">
+                        <h1 class="contact_taital">Contact Us</h1>
+                        <form action="koneksi.php" method="POST">
+                            <div class="input-group">
+                                <i class="fas fa-user"></i>
+                                <input type="text" id="nama" class="mail_text" placeholder="Nama" name="nama">
+                            </div>
+                            <div class="input-group">
+                                <i class="fas fa-envelope"></i>
+                                <input type="text" id="email" class="mail_text" placeholder="Email" name="email">
+                            </div>
+                            <div class="input-group">
+                                <i class="fas fa-phone"></i>
+                                <input type="text" id="telepon" class="mail_text" placeholder="Telepon" name="telepon">
+                            </div>
+                            <div class="input-group">
+                                <i class="fas fa-comment"></i>
+                                <textarea class="massage-bt" placeholder="Pesan" rows="5" id="pesan" name="pesan"></textarea>
+                            </div>
+                            <button type="submit">Submit</button>
+                            <button type="button" onclick="checkForm()">Check</button>
+                        </form>
+                        <br>
+                    </div>
                 </div>
-                <div class="input-group">
-                    <i data-feather="phone"></i>
-                    <input type="text" placeholder="no hp">
-                </div>
-                <button type="submit" class="btn">Kirim pesan</button>
-            </form>
-
+            </div>
         </div>
-    </section>
-    <!-- Kontak Section end -->
+    </div>
+</div>
+<!-- contact section end -->
+
+
+
 
     <!-- Footer start -->
     <footer>
-        <div class="socials">
-            <a href="#"><i data-feather="instagram"></i></a>
-            <a href="#"><i data-feather="twitter"></i></a>
-            <a href="#"><i data-feather="facebook"></i></a>
-        </div>
-
-        <div class="links">
+    <div class="links">
             <a href="#home">Home</a>
             <a href="#about">Tentang Kami</a>
             <a href="#menu">Menu</a>
@@ -256,7 +1375,7 @@
         </div>
 
         <div class="credit">
-            <p>Created by <a href="">SilviatulMunawaroh</a>. | &copy;2024.</p>
+            <p>Created by <a href="">DianPutriDewi</a>. | &copy;2024.</p>
         </div>
     </footer>
     <!-- Footer end -->
@@ -266,7 +1385,112 @@
         <div class="modal-container">
             <a href="#" class="close-icon"><i data-feather="x"></i></a>
             <div class="modal-content">
-                <img src="img/products/1.jfif" alt="Product 1">
+                <img src="img/products/es krim jeruk.jpg" alt="Product 1">
+                <div class="product-content">
+                    <h3>Coffe Kona</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit ut, nulla quod animi accusantium aliquid consequatur provident voluptate cumque cum, omnis asperiores facere eligendi ratione!</p>
+                    <div class="product-stars">
+                        <i data-feather="star" class="star-full"></i>
+                        <i data-feather="star" class="star-full"></i>
+                        <i data-feather="star" class="star-full"></i>
+                        <i data-feather="star" class="star-full"></i>
+                        <i data-feather="star" class="star-full"></i>
+                    </div>
+                    <div class="product-price">IDR 30K <span>IDR 50k</span></div>
+                    <a href="#shopping-cart"><i data-feather="shopping-cart"></i><span>add to cart</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="item-detail-modal">
+        <div class="modal-container">
+            <a href="#" class="close-icon"><i data-feather="x"></i></a>
+            <div class="modal-content">
+                <img src="img/products/kemasan produk kue jeruk.jpg" alt="Product 2">
+                <div class="product-content">
+                    <h3>Coffe Kona</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit ut, nulla quod animi accusantium aliquid consequatur provident voluptate cumque cum, omnis asperiores facere eligendi ratione!</p>
+                    <div class="product-stars">
+                        <i data-feather="star" class="star-full"></i>
+                        <i data-feather="star" class="star-full"></i>
+                        <i data-feather="star" class="star-full"></i>
+                        <i data-feather="star" class="star-full"></i>
+                        <i data-feather="star" class="star-full"></i>
+                    </div>
+                    <div class="product-price">IDR 30K <span>IDR 50k</span></div>
+                    <a href="#"><i data-feather="shopping-cart"></i><span>add to cart</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="item-detail-modal">
+        <div class="modal-container">
+            <a href="#" class="close-icon"><i data-feather="x"></i></a>
+            <div class="modal-content">
+                <img src="img/products/kripik jeruk.jpg" alt="Product 3">
+                <div class="product-content">
+                    <h3>Coffe Kona</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit ut, nulla quod animi accusantium aliquid consequatur provident voluptate cumque cum, omnis asperiores facere eligendi ratione!</p>
+                    <div class="product-stars">
+                        <i data-feather="star" class="star-full"></i>
+                        <i data-feather="star" class="star-full"></i>
+                        <i data-feather="star" class="star-full"></i>
+                        <i data-feather="star" class="star-full"></i>
+                        <i data-feather="star" class="star-full"></i>
+                    </div>
+                    <div class="product-price">IDR 30K <span>IDR 50k</span></div>
+                    <a href="#"><i data-feather="shopping-cart"></i><span>add to cart</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="item-detail-modal">
+        <div class="modal-container">
+            <a href="#" class="close-icon"><i data-feather="x"></i></a>
+            <div class="modal-content">
+                <img src="img/products/sari buah jeruk.jpg" alt="Product 4">
+                <div class="product-content">
+                    <h3>Coffe Kona</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit ut, nulla quod animi accusantium aliquid consequatur provident voluptate cumque cum, omnis asperiores facere eligendi ratione!</p>
+                    <div class="product-stars">
+                        <i data-feather="star" class="star-full"></i>
+                        <i data-feather="star" class="star-full"></i>
+                        <i data-feather="star" class="star-full"></i>
+                        <i data-feather="star" class="star-full"></i>
+                        <i data-feather="star" class="star-full"></i>
+                    </div>
+                    <div class="product-price">IDR 30K <span>IDR 50k</span></div>
+                    <a href="#"><i data-feather="shopping-cart"></i><span>add to cart</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="item-detail-modal">
+        <div class="modal-container">
+            <a href="#" class="close-icon"><i data-feather="x"></i></a>
+            <div class="modal-content">
+                <img src="img/products/selai jeruk.jpg" alt="Product 5">
+                <div class="product-content">
+                    <h3>Coffe Kona</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit ut, nulla quod animi accusantium aliquid consequatur provident voluptate cumque cum, omnis asperiores facere eligendi ratione!</p>
+                    <div class="product-stars">
+                        <i data-feather="star" class="star-full"></i>
+                        <i data-feather="star" class="star-full"></i>
+                        <i data-feather="star" class="star-full"></i>
+                        <i data-feather="star" class="star-full"></i>
+                        <i data-feather="star" class="star-full"></i>
+                    </div>
+                    <div class="product-price">IDR 30K <span>IDR 50k</span></div>
+                    <a href="#"><i data-feather="shopping-cart"></i><span>add to cart</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="item-detail-modal">
+        <div class="modal-container">
+            <a href="#" class="close-icon"><i data-feather="x"></i></a>
+            <div class="modal-content">
+                <img src="img/products/Sirup jeruk abc.jpg" alt="Product 6">
                 <div class="product-content">
                     <h3>Coffe Kona</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit ut, nulla quod animi accusantium aliquid consequatur provident voluptate cumque cum, omnis asperiores facere eligendi ratione!</p>
